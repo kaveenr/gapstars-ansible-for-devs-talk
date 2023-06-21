@@ -1,16 +1,26 @@
-- name: Setup Webservers
+- name: Deploy Website
   hosts: webservers
   vars:
     document_root: /var/www
-    app_root: website
+    web_root: website
   tasks: 
-    - name: Update apt cache and install Nginx
+    - name: Latest nginx is installed and present
       apt:
         name: nginx
         state: latest
         update_cache: yes
-    - name: Copy static website to document root
+    - name: Static website content is present
       copy:
-        src: "{{ app_root }}"
+        src: "{{ web_root }}"
         dest: "{{ document_root }}"
         mode: preserve
+    - name: Nginx configuration applied
+      template:
+        src: files/nginx.conf.j2
+        dest: /etc/nginx/sites-available/default
+      notify: Restart nginx
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
