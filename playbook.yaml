@@ -1,0 +1,16 @@
+- name: Setup Webservers
+  hosts: webservers
+  vars:
+    document_root: /var/www
+    app_root: website
+  tasks: 
+    - name: Update apt cache and install Nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+    - name: Copy static website to document root
+      copy:
+        src: "{{ app_root }}"
+        dest: "{{ document_root }}"
+        mode: preserve
