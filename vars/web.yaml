@@ -1,0 +1,14 @@
+# geerlingguy.firewall role vars
+firewall_allowed_tcp_ports:
+  - "22"
+  - "80"
+  - "443"
+
+# geerlingguy.certbot role vars
+certbot_admin_email: kaveen@ukr.lk
+certbot_create_if_missing: true
+certbot_create_standalone_stop_services:
+  - nginx
+certbot_certs:
+  - domains:
+      - "{{ ansible_host }}"

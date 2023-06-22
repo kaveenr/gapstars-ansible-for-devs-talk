@@ -15,17 +15,8 @@
   vars:
     document_root: /var/www
     web_root: website
-    firewall_allowed_tcp_ports:
-      - "22"
-      - "80"
-      - "443"
-    certbot_admin_email: kaveen@ukr.lk
-    certbot_create_if_missing: true
-    certbot_create_standalone_stop_services:
-      - nginx
-    certbot_certs:
-      - domains:
-          - "{{ ansible_host }}"
+  vars_files:
+    - vars/web.yaml
   roles:
     - { role: geerlingguy.firewall }
     - { role: geerlingguy.certbot }
