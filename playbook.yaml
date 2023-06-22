@@ -1,9 +1,35 @@
-- name: Deploy Website
+- name: Configure Servers
+  hosts: all
+  tasks:
+    - name: Apt cache is updated
+      apt:
+        update_cache: yes
+    - name: Custom MOTD is set
+      copy:
+        src: "files/motd.txt"
+        dest: "/etc/motd"
+        mode: preserve
+
+- name: Configure Webservers
   hosts: webservers
   vars:
     document_root: /var/www
     web_root: website
-  tasks: 
+    firewall_allowed_tcp_ports:
+      - "22"
+      - "80"
+      - "443"
+    certbot_admin_email: kaveen@ukr.lk
+    certbot_create_if_missing: true
+    certbot_create_standalone_stop_services:
+      - nginx
+    certbot_certs:
+      - domains:
+          - "{{ ansible_host }}"
+  roles:
+    - { role: geerlingguy.firewall }
+    - { role: geerlingguy.certbot }
+  tasks:
     - name: Latest nginx is installed and present
       apt:
         name: nginx
@@ -14,6 +40,7 @@
         src: "{{ web_root }}"
         dest: "{{ document_root }}"
         mode: preserve
+      tags: [ 'sources' ]
     - name: Nginx configuration applied
       template:
         src: files/nginx.conf.j2
