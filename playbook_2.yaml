@@ -1,0 +1,39 @@
+- name: Configure Servers
+  hosts: all
+  tasks:
+    - name: Apt cache is updated
+      apt:
+        update_cache: yes
+    - name: Custom MOTD is set
+      copy:
+        src: "files/motd.txt"
+        dest: "/etc/motd"
+        mode: preserve
+
+- name: Configure Webservers
+  hosts: webservers
+  vars:
+    document_root: /var/www
+    web_root: website
+  tasks:
+    - name: Latest nginx is installed and present
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+    - name: Static website content is present
+      copy:
+        src: "{{ web_root }}"
+        dest: "{{ document_root }}"
+        mode: preserve
+      tags: [ 'sources' ]
+    - name: Nginx configuration applied
+      template:
+        src: files/http.nginx.conf.j2
+        dest: /etc/nginx/sites-available/default
+      notify: Restart nginx
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted

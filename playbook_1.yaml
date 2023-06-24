@@ -1,0 +1,11 @@
+- name: Configure Servers
+  hosts: all
+  tasks:
+    - name: Apt cache is updated
+      apt:
+        update_cache: yes
+    - name: Custom MOTD is set
+      copy:
+        src: "files/motd.txt"
+        dest: "/etc/motd"
+        mode: preserve

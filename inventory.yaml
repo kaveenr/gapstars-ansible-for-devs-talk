@@ -1,5 +1,5 @@
 webservers:
   hosts:
     vm01:
-      ansible_host: demo.ukr.lk
+      ansible_host: demo1.ukr.lk
       ansible_user: root
