@@ -12,4 +12,9 @@ Slides Link: TBA
 
 ## Documentation
 
-Check [./frozen_demo.ipynb](Frozen Demo Python Notebook) which shows commands and corresponding outputs.
+Check [frozen_demo.ipynb](Frozen Demo Python Notebook) which shows commands and corresponding outputs.
+
+### Roles Used
+
+1. https://galaxy.ansible.com/geerlingguy/firewall
+2. https://galaxy.ansible.com/geerlingguy/certbot
