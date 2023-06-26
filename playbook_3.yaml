@@ -31,7 +31,7 @@
         src: "{{ web_root }}"
         dest: "{{ document_root }}"
         mode: preserve
-      tags: [ 'sources' ]
+      tags: [ 'source' ]
     - name: Nginx configuration applied
       template:
         src: files/nginx.conf.j2
