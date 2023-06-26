@@ -1,8 +1,8 @@
 # Ansible For Developers - Gapstars Star Talk
 
-Talk Recording: TBA
+**Talk Recording:** TBA
 
-Slides Link: TBA
+**Slides Link:** [Google Sheets](https://docs.google.com/presentation/d/1BLTTeTL9_NKbTuK6lCnkHC7Mjc6k10xCjKo230Z0h7g/edit?usp=sharing)
 
 ## Pre-requisites
 
@@ -12,7 +12,7 @@ Slides Link: TBA
 
 ## Documentation
 
-Check [frozen_demo.ipynb](Frozen Demo Python Notebook) which shows commands and corresponding outputs.
+Check [Frozen Demo Python Notebook](frozen_demo.ipynb) which shows commands and corresponding outputs.
 
 ### Roles Used
 
