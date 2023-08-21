@@ -3,7 +3,7 @@
 **Presenation Slides:** 
 
 - [Google Sheets](https://docs.google.com/presentation/d/1BLTTeTL9_NKbTuK6lCnkHC7Mjc6k10xCjKo230Z0h7g/edit?usp=sharing)
-- [PDF](Ansible For Developers.pdf)
+- [PDF](Ansible%20For%20Developers.pdf)
 
 ## Pre-requisites
 
