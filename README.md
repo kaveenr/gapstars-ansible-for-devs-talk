@@ -1,8 +1,9 @@
 # Ansible For Developers - Gapstars Star Talk
 
-**Talk Recording:** TBA
+**Presenation Slides:** 
 
-**Slides Link:** [Google Sheets](https://docs.google.com/presentation/d/1BLTTeTL9_NKbTuK6lCnkHC7Mjc6k10xCjKo230Z0h7g/edit?usp=sharing)
+- [Google Sheets](https://docs.google.com/presentation/d/1BLTTeTL9_NKbTuK6lCnkHC7Mjc6k10xCjKo230Z0h7g/edit?usp=sharing)
+- [PDF](Ansible For Developers.pdf)
 
 ## Pre-requisites
 
